@@ -1,0 +1,197 @@
+@charset "utf-8";
+header {
+  position: relative;
+}
+.header_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 7% 0 3%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.header_logo {
+  width: 226px;
+}
+.pc_nav ul {
+  display: flex;
+  gap: 54px;
+}
+.pc_nav ul li {
+  width: 105px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+}
+
+/* 共通のもの */
+.center {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.text_center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* キャッチコピー */
+.catch_copy_first {
+  font-size: 30px;
+  margin: 104px 0 47px 0;
+}
+.catch_copy {
+  letter-spacing: 0.1em;
+}
+.catch_copy_main {
+  line-height: 1.2;
+  font-size: 82px;
+}
+.catch_copy_text {
+  line-height: 1.7;
+  font-size: 23px;
+  margin: 20px 0 93px 0;
+}
+
+/* aboutについて */
+.aboutus {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 96px;
+}
+.aboutus_wrap {
+  width: 410px;
+}
+.about_img {
+  border-bottom-right-radius: 82px;
+  max-width: 500px;
+}
+.aboutus_logo {
+  width: 272px;
+  margin-bottom: 49px;
+}
+.aboutus_title {
+  line-height: 1.38;
+  font-size: 44px;
+  margin-bottom: 23px;
+}
+.aboutus_text {
+  line-height: 1.6;
+}
+.equivalent_arrangement {
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+/* menuについて */
+.menu {
+  margin-bottom: 96px;
+}
+.menu_wrap {
+  display: flex;
+  justify-content: center;
+  gap: 49px;
+}
+.menu_logo {
+  width: 151px;
+  margin-bottom: 48px;
+}
+.menu_img_title {
+  position: relative;
+}
+.menu_box img {
+  border-top-right-radius: 42px;
+  position: relative;
+}
+.menu_title {
+  color: #d30202;
+  font-size: 38px;
+  position: absolute;
+  bottom: -25px;
+  left: 12px;
+}
+.menu_text {
+  margin-top: 44px;
+}
+
+/* galleryについて */
+.gallery_wrap {
+  width: 100%;
+  display: flex;
+}
+.gallery_logo {
+  width: 245px;
+  margin-bottom: 27px;
+}
+.gallery {
+  margin-bottom: 71px;
+}
+
+/* eventについて */
+.event_logo {
+  width: 173px;
+  margin-bottom: 39px;
+}
+.event_news {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  margin-bottom: 78px;
+  border: 4px solid #4f260b;
+  background-color: white;
+}
+.event_horizontal {
+  display: flex;
+  gap: 50px;
+  padding-top: 20px;
+  font-size: 23px;
+}
+.event_horizontal a {
+  text-decoration: underline;
+}
+
+/* accessについて */
+.access_logo {
+  width: 213px;
+  margin-bottom: 47px;
+}
+.access_map iframe {
+  display: block;
+  width: 100%;
+  height: 470px;
+}
+
+/* footerについて */
+.footer_logo {
+  width: 226px;
+}
+.footer {
+  padding-top: 82px;
+  padding-bottom: 82px;
+  background-color: white;
+}
+.footer_detail {
+  line-height: 1.95;
+}
+.footer_horizontal {
+  display: flex;
+  gap: 68px;
+  margin-bottom: 77px;
+}
+.small {
+  text-align: center;
+}
+
+/* pagetopについて */
+.pagetop {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 12%;
+}
