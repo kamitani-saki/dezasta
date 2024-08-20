@@ -53,11 +53,13 @@ header {
 .catch_copy_main {
   line-height: 1.2;
   font-size: 82px;
+  letter-spacing: 0.1em;
 }
 .catch_copy_text {
   line-height: 1.7;
   font-size: 23px;
   margin: 20px 0 93px 0;
+  letter-spacing: 0.1em;
 }
 
 /* aboutについて */
@@ -65,13 +67,14 @@ header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 96px;
+  align-items: flex-start;
 }
 .aboutus_wrap {
-  width: 410px;
+  width: 41%;
 }
 .about_img {
   border-bottom-right-radius: 82px;
-  max-width: 500px;
+  width: 50%;
 }
 .aboutus_logo {
   width: 272px;
@@ -145,6 +148,10 @@ header {
   margin-bottom: 78px;
   border: 4px solid #4f260b;
   background-color: white;
+}
+.event_width {
+  width: fit-content;
+  margin: 0 auto;
 }
 .event_horizontal {
   display: flex;
