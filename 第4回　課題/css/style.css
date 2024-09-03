@@ -1,6 +1,10 @@
 @charset "utf-8";
+/* ヘッダー、ナビ */
 header {
   position: relative;
+}
+.pic img {
+  width: 100%;
 }
 .header_wrap {
   display: flex;
@@ -28,6 +32,51 @@ header {
   font-weight: bold;
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
     "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+}
+
+/* スライダー */
+.slick-dots {
+  bottom: 20px;
+}
+.slick-dots li button:before,
+.slick-dots li.slick-active button:before {
+  color: #fff;
+}
+.slick-dots li button:before {
+  font-size: 15px;
+}
+.slick-prev {
+  left: 22%;
+  z-index: 200;
+}
+.slick-prev:before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-top: 5px solid white;
+  border-right: 5px solid white;
+  transform: rotate(-135deg);
+}
+.slick-next {
+  right: 22%;
+}
+.slick-next:before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-top: 5px solid white;
+  border-right: 5px solid white;
+  transform: rotate(45deg);
+}
+
+/* lightboxについて */
+.lb-data .lb-caption {
+  color: #fff;
+}
+.lb-data .lb-number {
+  display: none !important;
 }
 
 /* 共通のもの */
@@ -72,12 +121,15 @@ header {
 .aboutus_wrap {
   width: 41%;
 }
-.about_img {
+.about_img_pc {
   border-bottom-right-radius: 82px;
   width: 50%;
 }
+.about_img_sp {
+  display: none;
+}
 .aboutus_logo {
-  width: 272px;
+  width: 66%;
   margin-bottom: 49px;
 }
 .aboutus_title {
@@ -122,6 +174,7 @@ header {
 }
 .menu_text {
   margin-top: 44px;
+  font-size: 17px;
 }
 
 /* galleryについて */
@@ -144,7 +197,7 @@ header {
 }
 .event_news {
   padding-top: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   margin-bottom: 78px;
   border: 4px solid #4f260b;
   background-color: white;
@@ -156,11 +209,14 @@ header {
 .event_horizontal {
   display: flex;
   gap: 50px;
-  padding-top: 20px;
   font-size: 23px;
 }
 .event_horizontal a {
   text-decoration: underline;
+}
+.event dt,
+dd {
+  line-height: 1.96;
 }
 
 /* accessについて */
@@ -176,7 +232,7 @@ header {
 
 /* footerについて */
 .footer_logo {
-  width: 226px;
+  width: 227px;
 }
 .footer {
   padding-top: 82px;
@@ -185,6 +241,7 @@ header {
 }
 .footer_detail {
   line-height: 1.95;
+  font-size: 20px;
 }
 .footer_horizontal {
   display: flex;
@@ -201,4 +258,287 @@ header {
   right: 40px;
   bottom: 40px;
   width: 12%;
+}
+
+/* スマホ版メニュー 非表示にする*/
+.sp_btn,
+.sp_nav {
+  display: none;
+}
+
+@media screen and (max-width: 1100px) {
+  /* ナビ */
+  /* PC版メニュー 非表示にする*/
+  .pc_nav {
+    display: none;
+  }
+  .sp_btn {
+    /* pc版で非表示（display:none）にした要素を表示させるため、 display:blockを入れる。*/
+    display: block;
+    height: 23px;
+    cursor: pointer;
+    /* 画面を基準にして.sp_btnの位置を移動させる。 */
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    z-index: 2;
+  }
+  .sp_btn span {
+    /* spanタグはインライン要素で横幅の指定はできないため、display:blockを入れる。 */
+    display: block;
+    width: 33px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    /* 基準の線を真ん中に持ってくる。今いる場所（sp_btnの一番上）から10px下へ。 */
+    position: relative;
+    top: 10px;
+    /* 何秒かけて変化させるか。（０.3秒） */
+    transition: 0.3s;
+  }
+  .sp_btn span::before,
+  .sp_btn span::after {
+    /* contentとは、要素の前後に文字や画像を挿入するもの。今回は線を引きたいだけなのでなにも入力しない*/
+    content: "";
+    display: block;
+    width: 33px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    /* spanタグの真ん中の線を基準として(spanが親要素になる)、beforeとafterを動かす。（beforeとafterが子要素） */
+    position: absolute;
+    transition: 0.3s;
+  }
+  .sp_btn span::before {
+    /* 真ん中の線を基準として下から上へ。bottom */
+    bottom: 10px;
+  }
+  .sp_btn span::after {
+    /* 真ん中を基準として上から下へ。top */
+    top: 10px;
+  }
+  /* ばつ印 */
+  /* sp_btnかつ.open(jQuery)がついている時のspan */
+  .sp_btn.open span {
+    /* 2本線でばつ印にするため、真ん中の線を一本消す。 
+    非表示にするのではなく、背景色を透明にする。*/
+    background: transparent;
+  }
+  .sp_btn.open span::before {
+    /* 真ん中を基準に線を回転させるため、上にある線を真ん中に持ってくる */
+    bottom: 0;
+    /* 45度回転する */
+    transform: rotate(45deg);
+  }
+  .sp_btn.open span::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+  /* メニュー */
+  /* 画面に覆い重なるように表示させる。 */
+  .sp_nav {
+    /* sp_navを画面の左上に持ってくる */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 幅と高さの指定*/
+    width: 100%;
+    /* height:100％だと sp_navの親要素（header）の高さいっぱいの大きさになってしまう。
+    そのため100vhにすることで、画面全体に覆い重なるように表示する。（ビューハイト：今開いているブラウザの高さ）*/
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+  }
+  .sp_nav ul {
+    /* 上下中央揃えを簡単にするため。縦並び→横並び（flex）→縦並び（flex-direction:column）にする。 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* ulの高さを親要素（.sp_nav）の高さに合わせる。 */
+    height: 100%;
+    gap: 20px;
+  }
+  .sp_nav ul li {
+    color: #fff;
+    font-size: 18px;
+    /* control +F で検索窓を出して、「游ゴシック」入れるとすぐ出てくる。コピペ。*/
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
+      "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  }
+}
+
+@media screen and (max-width: 895px) {
+  .catch_copy_main {
+    font-size: 68px;
+  }
+  .catch_copy_text {
+    font-size: 20px;
+  }
+  .aboutus_title {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* キャッチコピー */
+  .center {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .catch_copy_first {
+    font-size: 17px;
+    margin-top: 43px;
+    margin-bottom: 30px;
+  }
+  .catch_copy_main {
+    font-size: 38px;
+    line-height: 1.16;
+    letter-spacing: 0.02em;
+    padding: 0 2px;
+  }
+  .catch_copy_text {
+    font-size: 16px;
+    line-height: 1.88;
+    padding: 0 20px;
+  }
+  /* aboutについて */
+  .aboutus_logo {
+    margin: 0 auto;
+    width: 160px;
+  }
+  .about_img_pc {
+    display: none;
+  }
+  .aboutus_wrap {
+    width: 100%;
+  }
+  .about_img_sp {
+    display: block;
+    width: 100%;
+    margin-top: 17px;
+  }
+  .aboutus_title {
+    margin-top: 38px;
+    font-size: 36px;
+    line-height: 1.25;
+    padding: 0 20px;
+  }
+  .aboutus_text {
+    font-size: 16px;
+    line-height: 1.75;
+    padding: 0 20px;
+  }
+  .about_us {
+    margin-bottom: 55px;
+  }
+
+  /* menuについて */
+  .menu_wrap {
+    flex-direction: column;
+    padding: 0 37px;
+  }
+  .menu_img_title {
+    text-align: center;
+  }
+  .menu_logo {
+    width: 88px;
+    margin-bottom: 23px;
+  }
+  .menu_text {
+    line-height: 1.59;
+  }
+
+  /* galleryについて */
+  .gallery_logo {
+    width: 142px;
+  }
+
+  /* eventについて */
+  .event_horizontal {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 28px;
+    font-size: 16px;
+  }
+  .event_horizontal:last-child {
+    margin-bottom: 18px;
+  }
+  .event_width {
+    padding-top: 20px;
+    width: fit-content;
+  }
+  .event_news {
+    padding: 0 28px;
+    margin: 0 20px 33px 20px;
+  }
+  .event_logo {
+    width: 101px;
+    margin-bottom: 21px;
+  }
+  .event dd {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .event dt {
+    line-height: 1;
+  }
+
+  /* accessについて */
+  .access_logo {
+    width: 124px;
+    margin-bottom: 10px;
+  }
+  .access_map iframe {
+    height: 191px;
+  }
+
+  /* footerについて */
+  .footer {
+    padding-top: 48px;
+  }
+  .footer_logo {
+    width: 227px;
+  }
+  .footer_detail {
+    line-height: 1.72;
+  }
+  .footer_horizontal {
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 36px;
+    margin-bottom: 43px;
+  }
+  .footer_detail {
+    font-size: 18px;
+  }
+
+  /* pagetopについて */
+  .pagetop {
+    width: 26%;
+  }
+
+  /* sliderについて */
+  .slick-dots li button:before {
+    font-size: 8px;
+  }
+  .slick-prev {
+    left: 5%;
+  }
+  .slick-next {
+    right: 5%;
+  }
+
+  /* lightboxについて */
+  .lb-data.lb-number {
+    display: none;
+  }
+  .slick-slide img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 456px) {
+  .event_width {
+    width: 100%;
+  }
 }
