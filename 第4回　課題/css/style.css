@@ -257,7 +257,7 @@ dd {
   position: fixed;
   right: 40px;
   bottom: 40px;
-  width: 12%;
+  width: 125px;
 }
 
 /* スマホ版メニュー 非表示にする*/
@@ -465,7 +465,6 @@ dd {
   }
   .event_width {
     padding-top: 20px;
-    width: fit-content;
   }
   .event_news {
     padding: 0 28px;
@@ -515,7 +514,7 @@ dd {
 
   /* pagetopについて */
   .pagetop {
-    width: 26%;
+    width: 100px;
   }
 
   /* sliderについて */
